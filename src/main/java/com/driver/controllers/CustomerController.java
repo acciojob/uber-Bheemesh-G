@@ -11,18 +11,27 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
+	@Autowired
+	CustomerService customerService;
 	@PostMapping("/register")
 	public ResponseEntity<Void> registerCustomer(@RequestBody Customer customer){
+
+		customerService.register(customer);
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete")
 	public void deleteCustomer(@RequestParam Integer customerId){
+
+		customerService.deleteCustomer(customerId);
 	}
 
 	@PostMapping("/bookTrip")
 	public ResponseEntity<Integer> bookTrip(@RequestParam Integer customerId, @RequestParam String fromLocation, @RequestParam String toLocation, @RequestParam Integer distanceInKm) throws Exception {
+		TripBooking bookedTrip = new TripBooking();
 		return new ResponseEntity<>(bookedTrip.getTripBookingId(), HttpStatus.CREATED);
+
 	}
 
 	@DeleteMapping("/complete")
