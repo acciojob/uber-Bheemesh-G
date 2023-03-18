@@ -108,6 +108,7 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setStatus(TripStatus.COMPLETED);
 		int totalPrice = tripBooking.getDistanceInKm()*10;
 		tripBooking.setBill(totalPrice);
+		tripBookingRepository2.save(tripBooking);
 
 	}
 }
