@@ -62,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
 		try{
 			if(driverId==Integer.MAX_VALUE)
 			{
-				throw new Exception("No cab available!");
+				throw new Exception("No value present");
 			}
 		}
 		catch(Exception e)
