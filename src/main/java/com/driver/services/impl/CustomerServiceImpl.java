@@ -54,7 +54,7 @@ public class CustomerServiceImpl implements CustomerService {
 		int driverId = Integer.MAX_VALUE;
 		for (Driver i : driverList){
 			Cab cab = i.getCab();
-			if(cab.isAvailable()==true && i.getDriverId()<driverId)
+			if(cab.getAvailable()==true && i.getDriverId()<driverId)
 			{
 				driverId = i.getDriverId();
 			}
